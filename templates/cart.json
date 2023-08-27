@@ -1,0 +1,8 @@
+{
+  "sections": {
+    "template": {
+      "type": "cart_template"
+    }
+  },
+  "order": ["template"]
+}

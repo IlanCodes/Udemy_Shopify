@@ -1,0 +1,50 @@
+.
+├── README.md
+├── assets
+│   ├── application.css
+│   └── application.js
+├── config
+│   ├── settings_data.json
+│   └── settings_schema.json
+├── layout
+│   └── theme.liquid
+├── locales
+│   └── en.default.json
+├── package-lock.json
+├── package.json
+├── project_overview.txt
+├── project_structure.txt
+├── sections
+│   ├── 404_template.liquid
+│   ├── article_template.liquid
+│   ├── blog_template.liquid
+│   └── header.liquid
+├── snippets
+│   ├── homepage-text.liquid
+│   ├── icon-close.liquid
+│   ├── icon-dropdown.liquid
+│   ├── icon-failed.liquid
+│   ├── icon-menu.liquid
+│   ├── icon-shopping-bag.liquid
+│   ├── icon-success.liquid
+│   └── pagination.liquid
+├── src
+│   └── tailwind.css
+├── tailwind.config.js
+└── templates
+    ├── 404.json
+    ├── article.json
+    ├── blog.json
+    ├── cart.liquid
+    ├── collection.liquid
+    ├── collection.list.liquid
+    ├── customers
+    ├── gift_card.liquid
+    ├── index.liquid
+    ├── list-collections.liquid
+    ├── page.contact.liquid
+    ├── page.liquid
+    ├── product.liquid
+    └── search.liquid
+
+10 directories, 38 files
