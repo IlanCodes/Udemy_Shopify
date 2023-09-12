@@ -1,0 +1,58 @@
+<div class="flex flex-col items-center my-8">
+  <h1 class="text-center text-3xl">{{ section.settings.title }}</h1>
+  <div class="max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      {% for product in section.settings.featured_collection.products limit: section.settings.number_of_products_to_show_desktop %}
+        {% # forloop.index will give us the current index in the loop. If the index is greater than number_of_products_to_show_mobile (e.g. 2) (meaning it's the 3rd or 4th product), we add a class to hide the product on mobile (using hidden) and then display it only on larger screens (md:block). %}
+        <div class="{% if forloop.index > section.settings.number_of_products_to_show_mobile %}hidden md:block{% endif %}">
+          {% render 'product-card', product: product %}
+        </div>
+        {% else %}
+          {% for item in (1..4) %}
+            {% render 'product-card-placeholder' %}
+          {% endfor %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+
+
+{% schema %}
+  {
+    "name": "Featured Collection",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "default": "Featured Collection",
+        "label": "Title"
+      }, {
+        "type": "collection",
+        "id": "featured_collection",
+        "label": "Collection"
+      }, {
+        "type": "range",
+        "id": "number_of_products_to_show_desktop",
+        "min": 4,
+        "max": 12,
+        "default": 4,
+        "label": "Number of products to show on desktop",
+        "step": 1
+      }, {
+        "type": "range",
+        "id": "number_of_products_to_show_mobile",
+        "min": 1,
+        "max": 4,
+        "default": 1,
+        "label": "Number of products to show on mobile",
+        "step": 1
+      }
+    ],
+    "presets": [
+      {
+        "name": "Featured Collection"
+      }
+    ]
+  }
+{% endschema %}

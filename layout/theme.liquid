@@ -10,14 +10,41 @@
     {{ content_for_header }}
     <!-- Header hook for plugins -->
     {{ 'application.css' | asset_url | stylesheet_tag }}
+    {{ 'plugin_styles.css' | asset_url | stylesheet_tag }}
     {{ 'application.js' | asset_url | script_tag }}
-
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
   </head>
   <body class="">
     {% section 'header' %}
+    {% comment %}
+
+    {% if template.name != 'cart' and template.name != 'collection' and template.name != 'checkout' %}
+      <main role="main" class="md:pl-64">
+        {{ content_for_layout }}
+      </main>
+    {% else %}
+      <main role="main">
+        {{ content_for_layout }}
+      </main>
+    {% endif %}
+
+    {% endcomment %}
     <main role="main">
-      {{ content_for_layout }}
+        {{ content_for_layout }}
     </main>
+
   </body>
 </html>
+
+
+{% comment %}
+  Opt for a Conditional Side Navbar: If you only want the side navbar to appear on specific pages, you can add Liquid logic to conditionally render it. For example:
+
+  {% if template contains 'product' %}
+      <!-- SIDE NAVBAR CODE HERE -->
+  {% endif %}
+
+  This code will only show the side navbar on product pages.
+
+  By adding the left padding to the content within the theme.liquid file, you ensure that all pages using this layout will have their content adjusted to accommodate the fixed side navbar.
+{% endcomment %}

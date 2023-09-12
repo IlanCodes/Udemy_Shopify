@@ -1,0 +1,67 @@
+<div class="bg-blue-500 p-4">
+  <div class="flex justify-between items-center">
+    <!-- First Image Card -->
+    <div class="w-1/4">
+      {% if section.settings.banner_image_1 %}
+        {% comment %}
+        don't forget to add img_url and sizes or the image will not render
+        {% endcomment %}
+        <img
+          src="{{ section.settings.banner_image_1 | img_url: 'large' }}"
+          alt="{{ section.settings.banner_title }}"
+          class="w-full h-full object-cover">
+      {% endif %}
+    </div>
+
+    <!-- Text Section in the middle -->
+    <div class="w-1/2 text-center px-4">
+      <h2>{{ section.settings.banner_title }}</h2>
+      <p>{{ section.settings.banner_text }}</p>
+    </div>
+
+    <!-- Second Image Card -->
+    <div class="w-1/4">
+      {% if section.settings.banner_image_2 %}
+        <img
+          src="{{ section.settings.banner_image_2 | img_url: 'large' }}"
+          alt="{{ section.settings.banner_title }}"
+          class="w-full h-full object-cover">
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Banner Two Images",
+    "settings": [
+      {
+        "type": "text",
+        "id": "banner_title",
+        "label": "Banner Title",
+        "default": "About Us"
+      },
+      {
+        "type": "textarea",
+        "id": "banner_text",
+        "label": "Banner Text",
+        "default": "Learn more about our company's history, mission, and visionzzz."
+      },
+      {
+        "type": "image_picker",
+        "id": "banner_image_1",
+        "label": "First Banner Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "banner_image_2",
+        "label": "Second Banner Image"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Banner Two Images"
+      }
+    ]
+  }
+  {% endschema %}
