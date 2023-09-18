@@ -1,7 +1,13 @@
 <!doctype html>
 <html>
   <head>
-    <title>{{ page_title }}</title>
+    
+
+  <!-- Air Reviews Script -->
+ {% include 'air-reviews-setting' %}
+  <!-- /Air Reviews Script -->
+
+<title>{{ page_title }}</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="description" content="{{ page_description | escape }}">
@@ -33,7 +39,9 @@
         {{ content_for_layout }}
     </main>
 
-  </body>
+  {% render 'recurpay' %}
+{% render 'recurpay-cart' %}
+</body>
 </html>
 
 
