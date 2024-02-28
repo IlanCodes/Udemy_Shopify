@@ -50,9 +50,17 @@
       ],
       "settings": {
       }
+    },
+    "about_us_banner_WKqXw9": {
+      "type": "about_us_banner",
+      "settings": {
+        "banner_title": "About Us",
+        "banner_text": "Learn more about our company's history, mission, and visionzzz."
+      }
     }
   },
   "order": [
-    "template"
+    "template",
+    "about_us_banner_WKqXw9"
   ]
 }
